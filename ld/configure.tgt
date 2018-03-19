@@ -125,6 +125,7 @@ armeb-*-elf | armeb-*-eabi*)
 			targ_emul=armelfb ;;
 arm-*-elf | arm*-*-eabi* | arm-*-rtems*)
 			targ_emul=armelf ;;
+arm-*-hipperos*)	targ_emul=armelf ;;
 arm*-*-symbianelf*)	targ_emul=armsymbian;;
 arm-*-kaos*)		targ_emul=armelf ;;
 arm9e-*-elf)		targ_emul=armelf ;;
