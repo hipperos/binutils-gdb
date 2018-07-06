@@ -126,6 +126,7 @@ generic_target=${cpu_type}-$vendor-$os
 case ${generic_target} in
   aarch64*-*-elf*)			fmt=elf;;
   aarch64*-*-fuchsia*)			fmt=elf;;
+  aarch64*-*-hipperos*)			fmt=elf;;
   aarch64*-*-linux*)			fmt=elf em=linux
     case ${cpu}-${os} in
       aarch64*-linux-gnu_ilp32)		arch=aarch64:32 ;;
@@ -228,6 +229,7 @@ case ${generic_target} in
   i386-*-elfiamcu)			fmt=elf arch=iamcu ;;
   i386-*-elf*)				fmt=elf ;;
   i386-*-fuchsia*)			fmt=elf ;;
+  i386-*-hipperos*)			fmt=elf ;;
   i386-*-kaos*)				fmt=elf ;;
   i386-*-bsd*)				fmt=aout em=386bsd ;;
   i386-*-nacl*)				fmt=elf em=nacl
@@ -393,6 +395,7 @@ case ${generic_target} in
   ppc-*-beos*)				fmt=coff ;;
   ppc-*-*n*bsd* | ppc-*-elf*)		fmt=elf ;;
   ppc-*-eabi* | ppc-*-sysv4*)		fmt=elf ;;
+  ppc-*-hipperos*)		    fmt=elf ;;
   ppc-*-linux-*)			fmt=elf em=linux ;;
   ppc-*-solaris*)			fmt=elf em=solaris ;;
   ppc-*-macos*)				fmt=coff em=macos ;;
