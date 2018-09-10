@@ -19195,6 +19195,8 @@ elf32_arm_backend_symbol_processing (bfd *abfd, asymbol *sym)
 #define ELF_MACHINE_CODE		EM_ARM
 #ifdef __QNXTARGET__
 #define ELF_MAXPAGESIZE			0x1000
+#elif defined __HIPPEROS_TARGET__
+#define ELF_MAXPAGESIZE                 0x1000
 #else
 #define ELF_MAXPAGESIZE			0x10000
 #endif

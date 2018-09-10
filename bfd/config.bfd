@@ -451,6 +451,7 @@ case "${targ}" in
   arm-*-hipperos)
     targ_defvec=arm_elf32_le_vec
     targ_selvecs=arm_elf32_be_vec
+    targ_cflags=-D__HIPPEROS_TARGET__
     ;;
   arm*-*-vxworks | arm*-*-windiss)
     targ_defvec=arm_elf32_vxworks_le_vec
