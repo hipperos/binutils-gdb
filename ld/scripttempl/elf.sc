@@ -531,7 +531,9 @@ cat <<EOF
 EOF
 
 if test -n "${SEPARATE_CODE}${SEPARATE_TEXT}"; then
-  if test -n "${RODATA_ADDR}"; then
+  if test -n "${RODATA_FULL_ADDR}"; then
+    RODATA_ADDR="${RODATA_FULL_ADDR}"
+  elif test -n "${RODATA_ADDR}"; then
     RODATA_ADDR="\
 SEGMENT_START(\"rodata-segment\", ${RODATA_ADDR}) + SIZEOF_HEADERS"
   else
