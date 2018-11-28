@@ -11,6 +11,7 @@
 #	SMALL_DATA_CTOR - .ctors contains small data.
 #	SMALL_DATA_DTOR - .dtors contains small data.
 #	DATA_ADDR - if end-of-text-plus-one-page isn't right for data start
+#	RODATA_FULL_ADDR - if end-of-text-plus-one-page isn't right for rodata start
 #	INITIAL_READONLY_SECTIONS - at start of text segment
 #	OTHER_READONLY_SECTIONS - other than .text .init .rodata ...
 #		(e.g., .PARISC.milli)
@@ -531,7 +532,9 @@ cat <<EOF
 EOF
 
 if test -n "${SEPARATE_CODE}${SEPARATE_TEXT}"; then
-  if test -n "${RODATA_ADDR}"; then
+  if test -n "${RODATA_FULL_ADDR}"; then
+    RODATA_ADDR="${RODATA_FULL_ADDR}"
+  elif test -n "${RODATA_ADDR}"; then
     RODATA_ADDR="\
 SEGMENT_START(\"rodata-segment\", ${RODATA_ADDR}) + SIZEOF_HEADERS"
   else
