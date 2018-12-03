@@ -262,6 +262,7 @@ ALL_EMULATION_SOURCES = \
 	eelf32or1k_linux.c \
 	eelf32ppc.c \
 	eelf32ppc_fbsd.c \
+	eelf32ppc_hipperos.c \
 	eelf32ppclinux.c \
 	eelf32ppcnto.c \
 	eelf32ppcsim.c \
@@ -286,6 +287,7 @@ ALL_EMULATION_SOURCES = \
 	eelf_i386_be.c \
 	eelf_i386_chaos.c \
 	eelf_i386_fbsd.c \
+	eelf_i386_hipperos.c \
 	eelf_i386_ldso.c \
 	eelf_i386_nacl.c \
 	eelf_i386_sol2.c \
@@ -448,6 +450,7 @@ ALL_64_EMULATION_SOURCES = \
 	eelf64mmix.c \
 	eelf64ppc.c \
 	eelf64ppc_fbsd.c \
+	eelf64ppc_hipperos.c \
 	eelf64rdos.c \
 	eelf64tilegx.c \
 	eelf64tilegx_be.c \
@@ -764,8 +767,8 @@ earmelfb_fuchsia.c: $(srcdir)/emulparams/armelfb_fuchsia.sh \
 
 earmelfb_hipperos.c: $(srcdir)/emulparams/armelfb_hipperos.sh \
   $(srcdir)/emulparams/armelf_hipperos.sh \
-  $(srcdir)/emulparams/elf_hipperos.sh \
   $(srcdir)/emulparams/armelf.sh \
+  $(srcdir)/emulparams/elf_hipperos.sh \
   $(ELF_DEPS) $(srcdir)/emultempl/armelf.em \
   $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
 
@@ -1218,6 +1221,13 @@ eelf32ppc_fbsd.c: $(srcdir)/emulparams/elf32ppc_fbsd.sh \
   $(srcdir)/emultempl/ppc32elf.em ldemul-list.h \
   $(ELF_DEPS) $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
 
+eelf32ppc_hipperos.c: $(srcdir)/emulparams/elf32ppc_hipperos.sh \
+  $(srcdir)/emulparams/elf32ppc.sh $(srcdir)/emulparams/elf32ppccommon.sh \
+  $(srcdir)/emulparams/elf_hipperos.sh \
+  $(srcdir)/emulparams/dynamic_undefined_weak.sh \
+  $(srcdir)/emultempl/ppc32elf.em ldemul-list.h \
+  $(ELF_DEPS) $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
+
 eelf32ppclinux.c: $(srcdir)/emulparams/elf32ppclinux.sh \
   $(srcdir)/emulparams/elf32ppc.sh $(srcdir)/emulparams/elf32ppccommon.sh \
   $(srcdir)/emulparams/dynamic_undefined_weak.sh \
@@ -1302,6 +1312,11 @@ eelf_i386_chaos.c: $(srcdir)/emulparams/elf_i386_chaos.sh \
 
 eelf_i386_fbsd.c: $(srcdir)/emulparams/elf_i386_fbsd.sh \
   $(srcdir)/emulparams/elf_i386.sh \
+  $(ELF_X86_DEPS) $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
+
+eelf_i386_hipperos.c: $(srcdir)/emulparams/elf_i386_hipperos.sh \
+  $(srcdir)/emulparams/elf_i386.sh \
+  $(srcdir)/emulparams/elf_hipperos.sh \
   $(ELF_X86_DEPS) $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
 
 eelf_i386_ldso.c: $(srcdir)/emulparams/elf_i386_ldso.sh \
@@ -1544,15 +1559,15 @@ eaarch64fbsdb.c: $(srcdir)/emulparams/aarch64fbsdb.sh $(srcdir)/emulparams/aarch
   $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
 
 eaarch64hipperos.c: $(srcdir)/emulparams/aarch64hipperos.sh \
-  $(srcdir)/emulparams/elf_hipperos.sh \
   $(srcdir)/emulparams/aarch64elf.sh \
+  $(srcdir)/emulparams/elf_hipperos.sh \
   $(ELF_DEPS) $(srcdir)/emultempl/aarch64elf.em \
   $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
 
 eaarch64hipperosb.c: $(srcdir)/emulparams/aarch64hipperosb.sh \
   $(srcdir)/emulparams/aarch64hipperos.sh \
-  $(srcdir)/emulparams/elf_hipperos.sh \
   $(srcdir)/emulparams/aarch64elf.sh \
+  $(srcdir)/emulparams/elf_hipperos.sh \
   $(ELF_DEPS) $(srcdir)/emultempl/aarch64elf.em \
   $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
 
@@ -1831,6 +1846,13 @@ eelf64ppc.c: $(srcdir)/emulparams/elf64ppc.sh \
   $(ELF_DEPS) $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
 
 eelf64ppc_fbsd.c: $(srcdir)/emulparams/elf64ppc_fbsd.sh \
+  $(srcdir)/emulparams/dynamic_undefined_weak.sh \
+  $(srcdir)/emultempl/ppc64elf.em ldemul-list.h \
+  $(ELF_DEPS) $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
+
+eelf64ppc_hipperos.c: $(srcdir)/emulparams/elf64ppc_hipperos.sh \
+  $(srcdir)/emulparams/elf64ppc.sh \
+  $(srcdir)/emulparams/elf_hipperos.sh \
   $(srcdir)/emulparams/dynamic_undefined_weak.sh \
   $(srcdir)/emultempl/ppc64elf.em ldemul-list.h \
   $(ELF_DEPS) $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}

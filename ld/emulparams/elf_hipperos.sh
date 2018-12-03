@@ -1,5 +1,6 @@
 # If you change this file, please also look at files which source this one:
-# armelf_hipperos.sh armelfb_hipperos.sh
+# aarch64hipperos.sh armelf_hipperos.sh elf_i386_hipperos.s
+# elf32ppc_hipperos.sh elf64ppc_hipperos.sh
 
 unset STACK_ADDR
 
