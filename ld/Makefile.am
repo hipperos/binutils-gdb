@@ -394,6 +394,8 @@ ALL_64_EMULATION_SOURCES = \
 	eaarch64cloudabib.c \
 	eaarch64fbsd.c \
 	eaarch64fbsdb.c \
+	eaarch64hipperos.c \
+	eaarch64hipperosb.c \
 	eaarch64linux.c \
 	eaarch64linuxb.c \
 	eaarch64linux32.c \
@@ -1541,6 +1543,19 @@ eaarch64fbsdb.c: $(srcdir)/emulparams/aarch64fbsdb.sh $(srcdir)/emulparams/aarch
   $(ELF_DEPS) $(srcdir)/emultempl/aarch64elf.em \
   $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
 
+eaarch64hipperos.c: $(srcdir)/emulparams/aarch64hipperos.sh \
+  $(srcdir)/emulparams/aarch64elf.sh \
+  $(srcdir)/emulparams/elf_hipperos.sh \
+  $(ELF_DEPS) $(srcdir)/emultempl/aarch64elf.em \
+  $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
+
+eaarch64hipperosb.c: $(srcdir)/emulparams/aarch64hipperosb.sh \
+  $(srcdir)/emulparams/aarch64hipperos.sh \
+  $(srcdir)/emulparams/aarch64elf.sh \
+  $(srcdir)/emulparams/elf_hipperos.sh \
+  $(ELF_DEPS) $(srcdir)/emultempl/aarch64elf.em \
+  $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
+
 eaarch64linux.c: $(srcdir)/emulparams/aarch64linux.sh \
   $(ELF_DEPS) $(srcdir)/emultempl/aarch64elf.em \
   $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
@@ -1551,10 +1566,12 @@ eaarch64linuxb.c: $(srcdir)/emulparams/aarch64linuxb.sh $(srcdir)/emulparams/aar
 
 eaarch64linux32.c: $(srcdir)/emulparams/aarch64linux32.sh \
   $(ELF_DEPS) $(srcdir)/emultempl/aarch64elf.em \
+  $(srcdir)/emulparams/elf_hipperos.sh \
   $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
 
 eaarch64linux32b.c: $(srcdir)/emulparams/aarch64linux32b.sh $(srcdir)/emulparams/aarch64linux32.sh \
   $(ELF_DEPS) $(srcdir)/emultempl/aarch64elf.em \
+  $(srcdir)/emulparams/elf_hipperos.sh \
   $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
 
 epc532macha.c: $(srcdir)/emulparams/pc532macha.sh \

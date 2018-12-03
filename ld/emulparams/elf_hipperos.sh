@@ -1,5 +1,5 @@
 # If you change this file, please also look at files which source this one:
-# armelf_hipperos.sh armelfb_hipperos.sh
+# aarch64hipperos.sh aarch64hipperosb.sh armelf_hipperos.sh armelfb_hipperos.sh
 
 unset STACK_ADDR
 
