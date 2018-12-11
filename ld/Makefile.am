@@ -287,6 +287,7 @@ ALL_EMULATION_SOURCES = \
 	eelf_i386_be.c \
 	eelf_i386_chaos.c \
 	eelf_i386_fbsd.c \
+	eelf_i386_hipperos.c \
 	eelf_i386_ldso.c \
 	eelf_i386_nacl.c \
 	eelf_i386_sol2.c \
@@ -1311,6 +1312,11 @@ eelf_i386_chaos.c: $(srcdir)/emulparams/elf_i386_chaos.sh \
 
 eelf_i386_fbsd.c: $(srcdir)/emulparams/elf_i386_fbsd.sh \
   $(srcdir)/emulparams/elf_i386.sh \
+  $(ELF_X86_DEPS) $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
+
+eelf_i386_hipperos.c: $(srcdir)/emulparams/elf_i386_hipperos.sh \
+  $(srcdir)/emulparams/elf_i386.sh \
+  $(srcdir)/emulparams/elf_hipperos.sh \
   $(ELF_X86_DEPS) $(srcdir)/scripttempl/elf.sc ${GEN_DEPENDS}
 
 eelf_i386_ldso.c: $(srcdir)/emulparams/elf_i386_ldso.sh \

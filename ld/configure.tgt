@@ -304,7 +304,7 @@ x86_64-*-netbsd*)	targ_emul=elf_x86_64
 			esac ;;
 i[3-7]86-*-elfiamcu)	targ_emul=elf_iamcu
 			targ_extra_emuls=elf_i386 ;;
-i[3-7]86-*-elf* | i[3-7]86-*-rtems* | i[3-7]86-*-hipperos*)
+i[3-7]86-*-elf* | i[3-7]86-*-rtems*)
 			targ_emul=elf_i386
 			targ_extra_emuls=elf_iamcu ;;
 x86_64-*-elf* | x86_64-*-rtems* | x86_64-*-fuchsia*)
@@ -333,6 +333,9 @@ x86_64-*-freebsd* | x86_64-*-kfreebsd*-gnu)
 			    | sed -e 's/x86_64/i386/'` ;;
 i[3-7]86-*-gnu*)	targ_emul=elf_i386
 			targ_extra_emuls=elf_iamcu ;;
+i[3-7]86-*-hipperos*)
+			targ_emul=elf_i386_hipperos
+			targ_extra_emuls="elf_i386" ;;
 i[3-7]86-*-msdos*)	targ_emul=i386msdos; targ_extra_emuls=i386aout ;;
 i[3-7]86-*-moss*)	targ_emul=i386moss; targ_extra_emuls=i386msdos ;;
 i[3-7]86-*-winnt*)	targ_emul=i386pe ;
